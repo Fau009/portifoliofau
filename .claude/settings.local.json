@@ -1,0 +1,8 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(rm -f index.html)",
+      "Bash(npm create *)"
+    ]
+  }
+}

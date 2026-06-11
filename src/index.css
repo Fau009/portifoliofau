@@ -1,0 +1,85 @@
+@import "tailwindcss";
+
+@theme {
+  /* Cores - identidade visual Fau */
+  --color-navy-deep: #0A1628;
+  --color-navy-medium: #0D2137;
+  --color-gold: #C9A84C;
+  --color-gold-light: #E8C97A;
+  --color-surface: #F8F7F4;
+  --color-text-primary: #1A1A2E;
+  --color-text-secondary: #64748B;
+
+  /* Tipografia */
+  --font-display: "Plus Jakarta Sans", "Inter", sans-serif;
+  --font-body: "Inter", "IBM Plex Sans", sans-serif;
+  --font-mono: "JetBrains Mono", "Fira Code", monospace;
+
+  /* Animações */
+  --animate-fade-in: fade-in 0.6s ease-out forwards;
+  --animate-fade-in-up: fade-in-up 0.7s ease-out forwards;
+
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  @keyframes fade-in-up {
+    from {
+      opacity: 0;
+      transform: translateY(24px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-surface text-text-primary font-body antialiased;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-display;
+  }
+
+  ::selection {
+    @apply bg-gold/30 text-text-primary;
+  }
+
+  :focus-visible {
+    @apply outline-2 outline-offset-2 outline-gold;
+  }
+}
+
+@layer components {
+  .container-section {
+    @apply mx-auto w-full max-w-6xl px-6 lg:px-8;
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 rounded-md bg-gold px-6 py-3 font-display font-semibold text-navy-deep transition-all duration-300 hover:bg-gold-light hover:shadow-lg hover:shadow-gold/20;
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center justify-center gap-2 rounded-md border border-gold/40 px-6 py-3 font-display font-semibold text-current transition-all duration-300 hover:border-gold hover:bg-gold/10;
+  }
+
+  .card {
+    @apply rounded-lg border border-text-secondary/15 bg-white/60 p-6 transition-all duration-300 hover:-translate-y-1 hover:border-gold/50 hover:shadow-xl hover:shadow-navy-deep/5;
+  }
+
+  .section-eyebrow {
+    @apply mb-3 font-mono text-sm uppercase tracking-[0.2em] text-gold;
+  }
+}
