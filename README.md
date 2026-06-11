@@ -1,9 +1,10 @@
-# Fábio Fortuny — Portfólio Pessoal
+# Fabio Santos — Portfólio Pessoal & Full Solutions
 
-Site de portfólio profissional de **Fábio Fortuny ("Fau")**, consultor de tecnologia
-especializado em Customer Experience, Zendesk e Inteligência Artificial. Inclui um
-painel administrativo oculto para personalização de tema, conteúdo, projetos e
-mensagens de contato.
+Site de portfólio profissional de **Fabio Santos**, consultor de tecnologia
+especializado em Customer Experience, Zendesk e Inteligência Artificial, e fundador
+da **Full Solutions**. Inclui uma página dedicada à Full Solutions e um painel
+administrativo oculto para personalização de tema, conteúdo, projetos e mensagens
+de contato.
 
 ## Stack
 
@@ -106,4 +107,4 @@ npm run preview   # preview local do build de produção
 
 ## Licença
 
-Todos os direitos reservados — Fábio Fortuny.
+Todos os direitos reservados — Fabio Santos / Full Solutions.

@@ -31,6 +31,17 @@ export interface ThemeColors {
   textSecondary: string;
 }
 
+export interface FullSolutionsArea {
+  title: string;
+  description: string;
+}
+
+export interface FullSolutionsContent {
+  intro: string;
+  mission: string;
+  areas: FullSolutionsArea[];
+}
+
 export interface CustomPage {
   id: string;
   slug: string;

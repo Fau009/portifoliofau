@@ -6,9 +6,9 @@ export function Footer() {
       <div className="container-section flex flex-col items-center gap-6 py-10 md:flex-row md:justify-between">
         <div className="text-center md:text-left">
           <p className="font-display text-base font-semibold text-surface">
-            Fábio <span className="text-gold">Fortuny</span>
+            Fabio <span className="text-gold">Santos</span>
           </p>
-          <p className="mt-1 text-sm">Consultor de Tecnologia &amp; CX · São Paulo, SP, Brasil</p>
+          <p className="mt-1 text-sm">Full Solutions · Consultoria em Tecnologia &amp; CX · São Paulo, SP, Brasil</p>
         </div>
 
         <div className="flex items-center gap-4">
@@ -28,7 +28,7 @@ export function Footer() {
       </div>
 
       <div className="border-t border-surface/10 py-4 text-center text-xs text-surface/50">
-        © {new Date().getFullYear()} Fábio Fortuny. Todos os direitos reservados.
+        © {new Date().getFullYear()} Fabio Santos · Full Solutions. Todos os direitos reservados.
       </div>
     </footer>
   );

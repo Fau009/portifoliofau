@@ -40,7 +40,7 @@ export default function Contact() {
     <>
       <SEO
         title="Contato"
-        description="Entre em contato com Fábio Fortuny para consultorias em CX, Zendesk e projetos de tecnologia."
+        description="Entre em contato com Fabio Santos / Full Solutions para consultorias em CX, Zendesk e projetos de tecnologia."
       />
 
       <section className="bg-navy-deep py-24 text-surface">

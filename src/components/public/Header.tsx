@@ -8,6 +8,7 @@ const NAV_LINKS = [
   { to: '/especialidades', label: 'Especialidades' },
   { to: '/projetos', label: 'Projetos' },
   { to: '/tecnologias', label: 'Tecnologias' },
+  { to: '/full-solutions', label: 'Full Solutions' },
   { to: '/contato', label: 'Contato' },
 ];
 
@@ -30,7 +31,7 @@ export function Header() {
     >
       <div className="container-section flex h-16 items-center justify-between">
         <Link to="/" className="font-display text-lg font-bold tracking-tight text-surface">
-          Fábio<span className="text-gold"> Fortuny</span>
+          Fabio<span className="text-gold"> Santos</span>
         </Link>
 
         <nav className="hidden items-center gap-8 md:flex">

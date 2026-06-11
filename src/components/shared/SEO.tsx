@@ -5,7 +5,7 @@ interface SEOProps {
   description?: string;
 }
 
-const SITE_NAME = 'Fábio Fortuny | Fau';
+const SITE_NAME = 'Fabio Santos | Full Solutions';
 
 export function SEO({ title, description }: SEOProps) {
   const fullTitle = `${title} · ${SITE_NAME}`;

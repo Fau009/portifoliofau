@@ -7,6 +7,7 @@ import { ProtectedRoute } from '@/components/admin/ProtectedRoute';
 import Home from '@/pages/public/Home';
 import About from '@/pages/public/About';
 import Specialties from '@/pages/public/Specialties';
+import FullSolutions from '@/pages/public/FullSolutions';
 import Projects from '@/pages/public/Projects';
 import Technologies from '@/pages/public/Technologies';
 import Contact from '@/pages/public/Contact';
@@ -31,6 +32,7 @@ export default function App() {
             <Route path="/" element={<Home />} />
             <Route path="/sobre" element={<About />} />
             <Route path="/especialidades" element={<Specialties />} />
+            <Route path="/full-solutions" element={<FullSolutions />} />
             <Route path="/projetos" element={<Projects />} />
             <Route path="/tecnologias" element={<Technologies />} />
             <Route path="/contato" element={<Contact />} />

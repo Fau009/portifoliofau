@@ -1,10 +1,11 @@
 import { createContext, useContext } from 'react';
-import { defaultContent, defaultTheme } from './useSiteConfig';
-import type { ThemeColors } from '@/types';
+import { defaultContent, defaultFullSolutions, defaultTheme } from './useSiteConfig';
+import type { FullSolutionsContent, ThemeColors } from '@/types';
 
 export interface SiteConfigContextValue {
   theme: ThemeColors;
   content: typeof defaultContent;
+  fullSolutions: FullSolutionsContent;
   loading: boolean;
   refetch: () => Promise<void>;
 }
@@ -12,6 +13,7 @@ export interface SiteConfigContextValue {
 export const SiteConfigContext = createContext<SiteConfigContextValue>({
   theme: defaultTheme,
   content: defaultContent,
+  fullSolutions: defaultFullSolutions,
   loading: true,
   refetch: async () => {},
 });

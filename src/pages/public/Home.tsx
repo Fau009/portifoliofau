@@ -36,7 +36,7 @@ export default function Home() {
     <>
       <SEO
         title="Início"
-        description="Fábio Fortuny — Consultor de Tecnologia, especialista em Customer Experience, Zendesk e Inteligência Artificial."
+        description="Fabio Santos — Consultor de Tecnologia e fundador da Full Solutions, especialista em Customer Experience, Zendesk e Inteligência Artificial."
       />
 
       {/* Hero */}
@@ -45,10 +45,10 @@ export default function Home() {
           <Reveal>
             <p className="section-eyebrow">Olá, eu sou</p>
             <h1 className="font-display text-5xl font-bold leading-tight tracking-tight md:text-7xl">
-              Fábio Fortuny
+              Fabio Santos
             </h1>
             <p className="mt-2 font-display text-2xl font-medium text-surface/80 md:text-3xl">
-              também conhecido como <span className="text-gold-light">"Fau"</span>
+              fundador da <Link to="/full-solutions" className="text-gold-light hover:text-gold">Full Solutions</Link>
             </p>
           </Reveal>
 

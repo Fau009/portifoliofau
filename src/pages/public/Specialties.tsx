@@ -88,7 +88,7 @@ export default function Specialties() {
     <>
       <SEO
         title="Especialidades"
-        description="Áreas de especialização de Fábio Fortuny: CX, Zendesk, Inteligência Artificial, Desenvolvimento e Gestão de Projetos."
+        description="Áreas de especialização de Fabio Santos: CX, Zendesk, Inteligência Artificial, Desenvolvimento e Gestão de Projetos."
       />
 
       <section className="bg-navy-deep py-24 text-surface">

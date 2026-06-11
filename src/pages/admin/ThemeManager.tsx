@@ -86,7 +86,7 @@ export default function ThemeManager() {
             <p className="font-mono text-xs uppercase tracking-widest" style={{ color: draft.gold }}>
               Preview
             </p>
-            <h3 className="mt-2 font-display text-2xl font-bold">Fábio Fortuny</h3>
+            <h3 className="mt-2 font-display text-2xl font-bold">Fabio Santos</h3>
             <p className="mt-1 text-sm" style={{ color: draft.goldLight }}>
               Especialista em CX
             </p>

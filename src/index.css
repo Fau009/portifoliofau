@@ -1,14 +1,17 @@
 @import "tailwindcss";
 
 @theme {
-  /* Cores - identidade visual Fau */
-  --color-navy-deep: #0A1628;
-  --color-navy-medium: #0D2137;
-  --color-gold: #C9A84C;
-  --color-gold-light: #E8C97A;
-  --color-surface: #F8F7F4;
-  --color-text-primary: #1A1A2E;
-  --color-text-secondary: #64748B;
+  /* Cores - identidade visual Fabio Santos / Full Solutions
+     (nomes de variáveis mantidos por compatibilidade com o tema
+     salvo no Supabase, mas os valores seguem a paleta preto/branco
+     clássica com accent em grafite-cobre) */
+  --color-navy-deep: #0A0A0A;
+  --color-navy-medium: #1A1A1A;
+  --color-gold: #8C7A6B;
+  --color-gold-light: #B5A797;
+  --color-surface: #FAFAFA;
+  --color-text-primary: #111111;
+  --color-text-secondary: #6B6B6B;
 
   /* Tipografia */
   --font-display: "Plus Jakarta Sans", "Inter", sans-serif;

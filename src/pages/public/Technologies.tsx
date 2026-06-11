@@ -22,7 +22,7 @@ export default function Technologies() {
     <>
       <SEO
         title="Tecnologias"
-        description="Stack técnico e ferramentas dominadas por Fábio Fortuny: Zendesk, Supabase, React, IA e mais."
+        description="Stack técnico e ferramentas dominadas por Fabio Santos: Zendesk, Supabase, React, IA e mais."
       />
 
       <section className="bg-navy-deep py-24 text-surface">

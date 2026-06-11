@@ -22,7 +22,7 @@ export default function Projects() {
     <>
       <SEO
         title="Projetos"
-        description="Portfólio de projetos de Fábio Fortuny: clientes BCR.CX, projetos pessoais e eventos."
+        description="Portfólio de projetos de Fabio Santos e da Full Solutions: clientes BCR.CX, projetos pessoais e eventos."
       />
 
       <section className="bg-navy-deep py-24 text-surface">

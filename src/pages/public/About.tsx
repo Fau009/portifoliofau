@@ -33,7 +33,7 @@ export default function About() {
     <>
       <SEO
         title="Sobre Mim"
-        description="Conheça a trajetória profissional e pessoal de Fábio Fortuny, consultor de tecnologia e CX."
+        description="Conheça a trajetória profissional e pessoal de Fabio Santos, consultor de tecnologia, CX e fundador da Full Solutions."
       />
 
       {/* Bloco profissional */}
@@ -74,7 +74,7 @@ export default function About() {
         <div className="container-section max-w-4xl">
           <Reveal>
             <p className="section-eyebrow">Além do trabalho</p>
-            <h2 className="text-3xl font-bold md:text-4xl">Quem é o Fau fora do escritório</h2>
+            <h2 className="text-3xl font-bold md:text-4xl">Quem é Fabio fora do escritório</h2>
           </Reveal>
 
           <Reveal delay={0.1}>
