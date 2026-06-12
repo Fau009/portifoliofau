@@ -1,10 +1,12 @@
 import { useEffect, useState } from 'react';
 import { supabase } from '@/lib/supabaseClient';
-import { defaultContent, defaultFullSolutions } from '@/hooks/useSiteConfig';
+import { defaultContent, defaultFullSolutions, defaultHero } from '@/hooks/useSiteConfig';
+import type { HeroContent } from '@/types';
 
 export default function ContentManager() {
   const [content, setContent] = useState(defaultContent);
   const [fullSolutions, setFullSolutions] = useState(defaultFullSolutions);
+  const [hero, setHero] = useState<HeroContent>(defaultHero);
   const [loading, setLoading] = useState(true);
   const [saving, setSaving] = useState(false);
   const [saved, setSaved] = useState(false);
@@ -13,14 +15,16 @@ export default function ContentManager() {
     supabase
       .from('site_config')
       .select('key, value')
-      .in('key', ['content', 'full_solutions'])
+      .in('key', ['content', 'full_solutions', 'hero'])
       .then(({ data }) => {
         const contentRow = data?.find((row) => row.key === 'content');
         const fullSolutionsRow = data?.find((row) => row.key === 'full_solutions');
+        const heroRow = data?.find((row) => row.key === 'hero');
         if (contentRow?.value) setContent({ ...defaultContent, ...(contentRow.value as typeof defaultContent) });
         if (fullSolutionsRow?.value) {
           setFullSolutions({ ...defaultFullSolutions, ...(fullSolutionsRow.value as typeof defaultFullSolutions) });
         }
+        if (heroRow?.value) setHero({ ...defaultHero, ...(heroRow.value as Partial<HeroContent>) });
         setLoading(false);
       });
   }, []);
@@ -31,6 +35,7 @@ export default function ContentManager() {
     await supabase.from('site_config').upsert([
       { key: 'content', value: content },
       { key: 'full_solutions', value: fullSolutions },
+      { key: 'hero', value: hero },
     ]);
     setSaving(false);
     setSaved(true);
@@ -51,6 +56,97 @@ export default function ContentManager() {
       <p className="mt-1 text-sm text-text-secondary">Edite os textos das principais seções do site.</p>
 
       <div className="mt-8 space-y-6">
+        <div className="card">
+          <label className="mb-3 block font-display text-sm font-medium">Hero (Home) — Apresentação</label>
+          <div className="grid gap-4 sm:grid-cols-2">
+            <div>
+              <label className="mb-1 block text-xs text-text-secondary">Texto de saudação (eyebrow)</label>
+              <input
+                type="text"
+                value={hero.eyebrow}
+                onChange={(e) => setHero({ ...hero, eyebrow: e.target.value })}
+                className="w-full rounded-md border border-text-secondary/20 px-3 py-2 text-sm focus:border-gold focus:outline-none"
+              />
+            </div>
+            <div>
+              <label className="mb-1 block text-xs text-text-secondary">Nome</label>
+              <input
+                type="text"
+                value={hero.name}
+                onChange={(e) => setHero({ ...hero, name: e.target.value })}
+                className="w-full rounded-md border border-text-secondary/20 px-3 py-2 text-sm focus:border-gold focus:outline-none"
+              />
+            </div>
+            <div>
+              <label className="mb-1 block text-xs text-text-secondary">Texto antes do link (tagline)</label>
+              <input
+                type="text"
+                value={hero.taglinePrefix}
+                onChange={(e) => setHero({ ...hero, taglinePrefix: e.target.value })}
+                className="w-full rounded-md border border-text-secondary/20 px-3 py-2 text-sm focus:border-gold focus:outline-none"
+              />
+            </div>
+            <div className="grid grid-cols-2 gap-2">
+              <div>
+                <label className="mb-1 block text-xs text-text-secondary">Texto do link</label>
+                <input
+                  type="text"
+                  value={hero.taglineLinkText}
+                  onChange={(e) => setHero({ ...hero, taglineLinkText: e.target.value })}
+                  className="w-full rounded-md border border-text-secondary/20 px-3 py-2 text-sm focus:border-gold focus:outline-none"
+                />
+              </div>
+              <div>
+                <label className="mb-1 block text-xs text-text-secondary">Link</label>
+                <input
+                  type="text"
+                  value={hero.taglineLinkUrl}
+                  onChange={(e) => setHero({ ...hero, taglineLinkUrl: e.target.value })}
+                  className="w-full rounded-md border border-text-secondary/20 px-3 py-2 text-sm focus:border-gold focus:outline-none"
+                />
+              </div>
+            </div>
+          </div>
+
+          <label className="mb-3 mt-6 block font-display text-sm font-medium">Hero (Home) — Botões</label>
+          <div className="grid gap-4 sm:grid-cols-2">
+            <div className="rounded-md border border-text-secondary/15 p-4">
+              <p className="mb-2 text-xs font-semibold text-text-secondary">Botão principal</p>
+              <label className="mb-1 block text-xs text-text-secondary">Texto</label>
+              <input
+                type="text"
+                value={hero.ctaPrimary.text}
+                onChange={(e) => setHero({ ...hero, ctaPrimary: { ...hero.ctaPrimary, text: e.target.value } })}
+                className="w-full rounded-md border border-text-secondary/20 px-3 py-2 text-sm focus:border-gold focus:outline-none"
+              />
+              <label className="mb-1 mt-2 block text-xs text-text-secondary">Link</label>
+              <input
+                type="text"
+                value={hero.ctaPrimary.link}
+                onChange={(e) => setHero({ ...hero, ctaPrimary: { ...hero.ctaPrimary, link: e.target.value } })}
+                className="w-full rounded-md border border-text-secondary/20 px-3 py-2 text-sm focus:border-gold focus:outline-none"
+              />
+            </div>
+            <div className="rounded-md border border-text-secondary/15 p-4">
+              <p className="mb-2 text-xs font-semibold text-text-secondary">Botão secundário</p>
+              <label className="mb-1 block text-xs text-text-secondary">Texto</label>
+              <input
+                type="text"
+                value={hero.ctaSecondary.text}
+                onChange={(e) => setHero({ ...hero, ctaSecondary: { ...hero.ctaSecondary, text: e.target.value } })}
+                className="w-full rounded-md border border-text-secondary/20 px-3 py-2 text-sm focus:border-gold focus:outline-none"
+              />
+              <label className="mb-1 mt-2 block text-xs text-text-secondary">Link</label>
+              <input
+                type="text"
+                value={hero.ctaSecondary.link}
+                onChange={(e) => setHero({ ...hero, ctaSecondary: { ...hero.ctaSecondary, link: e.target.value } })}
+                className="w-full rounded-md border border-text-secondary/20 px-3 py-2 text-sm focus:border-gold focus:outline-none"
+              />
+            </div>
+          </div>
+        </div>
+
         <div className="card">
           <label className="mb-1.5 block font-display text-sm font-medium">Subtítulo do Hero (Home)</label>
           <textarea

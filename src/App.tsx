@@ -17,6 +17,9 @@ import AdminLogin from '@/pages/admin/Login';
 import AdminDashboard from '@/pages/admin/Dashboard';
 import AdminProjects from '@/pages/admin/ProjectsManager';
 import AdminContent from '@/pages/admin/ContentManager';
+import AdminSpecialties from '@/pages/admin/SpecialtiesManager';
+import AdminTechnologies from '@/pages/admin/TechnologiesManager';
+import AdminAbout from '@/pages/admin/AboutManager';
 import AdminTheme from '@/pages/admin/ThemeManager';
 import AdminPages from '@/pages/admin/PagesManager';
 import AdminImages from '@/pages/admin/ImagesManager';
@@ -54,6 +57,9 @@ export default function App() {
             <Route path="dashboard" element={<AdminDashboard />} />
             <Route path="projetos" element={<AdminProjects />} />
             <Route path="conteudo" element={<AdminContent />} />
+            <Route path="especialidades" element={<AdminSpecialties />} />
+            <Route path="tecnologias" element={<AdminTechnologies />} />
+            <Route path="sobre" element={<AdminAbout />} />
             <Route path="tema" element={<AdminTheme />} />
             <Route path="paginas" element={<AdminPages />} />
             <Route path="imagens" element={<AdminImages />} />

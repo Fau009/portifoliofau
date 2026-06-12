@@ -1,4 +1,4 @@
-import type { Project, TechItem } from '@/types';
+import type { Project } from '@/types';
 
 export const mockProjects: Project[] = [
   // BCR.CX
@@ -130,23 +130,4 @@ export const mockProjects: Project[] = [
     created_at: '2024-03-01T00:00:00Z',
     updated_at: '2024-03-01T00:00:00Z',
   },
-];
-
-export const mockTechnologies: TechItem[] = [
-  { name: 'Zendesk', level: 98, category: 'cx' },
-  { name: 'Supabase', level: 90, category: 'infra' },
-  { name: 'Firebase', level: 80, category: 'infra' },
-  { name: 'React', level: 88, category: 'dev' },
-  { name: 'TypeScript', level: 85, category: 'dev' },
-  { name: 'Vite', level: 85, category: 'dev' },
-  { name: 'Tailwind CSS', level: 85, category: 'dev' },
-  { name: 'Vercel', level: 85, category: 'infra' },
-  { name: 'OpenAI', level: 85, category: 'ai' },
-  { name: 'Claude / Anthropic', level: 85, category: 'ai' },
-  { name: 'Ultimate.ai', level: 90, category: 'ai' },
-  { name: 'Automações (Make, Zapier, n8n)', level: 85, category: 'ai' },
-  { name: 'Python', level: 65, category: 'dev' },
-  { name: 'APIs REST', level: 85, category: 'dev' },
-  { name: 'GitHub', level: 85, category: 'dev' },
-  { name: 'Figma', level: 70, category: 'design' },
 ];

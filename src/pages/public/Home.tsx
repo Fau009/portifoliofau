@@ -8,27 +8,8 @@ import { useProjects } from '@/hooks/useProjects';
 import { ProjectCard } from '@/components/public/ProjectCard';
 import { SOCIAL_LINKS } from '@/lib/socialLinks';
 
-const SPECIALTIES = [
-  {
-    title: 'Customer Experience',
-    description: 'Estruturação de operações, fluxos omnichannel, SLA e jornadas do cliente.',
-  },
-  {
-    title: 'Zendesk Specialist',
-    description: 'Support, Guide, Explore, Messaging e AI Agents — todas as certificações Zendesk.',
-  },
-  {
-    title: 'Inteligência Artificial',
-    description: 'Chatbots, agentes autônomos, OpenAI, Claude/Anthropic e prompt engineering.',
-  },
-  {
-    title: 'Desenvolvimento & Integrações',
-    description: 'APIs REST, Webhooks, Firebase, Supabase, React/TypeScript.',
-  },
-];
-
 export default function Home() {
-  const { content } = useSiteContent();
+  const { content, hero, specialties } = useSiteContent();
   const { projects } = useProjects();
   const featured = projects.filter((p) => p.featured).slice(0, 3);
 
@@ -43,12 +24,15 @@ export default function Home() {
       <section className="relative overflow-hidden bg-navy-deep text-surface">
         <div className="container-section flex min-h-[calc(100vh-4rem)] flex-col items-start justify-center gap-8 py-24">
           <Reveal>
-            <p className="section-eyebrow">Olá, eu sou</p>
+            <p className="section-eyebrow">{hero.eyebrow}</p>
             <h1 className="font-display text-5xl font-bold leading-tight tracking-tight md:text-7xl">
-              Fabio Santos
+              {hero.name}
             </h1>
             <p className="mt-2 font-display text-2xl font-medium text-surface/80 md:text-3xl">
-              fundador da <Link to="/full-solutions" className="text-gold-light hover:text-gold">Full Solutions</Link>
+              {hero.taglinePrefix}{' '}
+              <Link to={hero.taglineLinkUrl} className="text-gold-light hover:text-gold">
+                {hero.taglineLinkText}
+              </Link>
             </p>
           </Reveal>
 
@@ -66,12 +50,12 @@ export default function Home() {
 
           <Reveal delay={0.3}>
             <div className="flex flex-wrap items-center gap-4">
-              <Link to="/projetos" className="btn-primary">
-                Ver Projetos
+              <Link to={hero.ctaPrimary.link} className="btn-primary">
+                {hero.ctaPrimary.text}
                 <ArrowRight size={18} />
               </Link>
-              <Link to="/contato" className="btn-secondary text-surface">
-                Entrar em Contato
+              <Link to={hero.ctaSecondary.link} className="btn-secondary text-surface">
+                {hero.ctaSecondary.text}
               </Link>
             </div>
           </Reveal>
@@ -104,11 +88,11 @@ export default function Home() {
           </Reveal>
 
           <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-            {SPECIALTIES.map((item, i) => (
-              <Reveal key={item.title} delay={i * 0.08}>
+            {specialties.map((item, i) => (
+              <Reveal key={item.id} delay={i * 0.08}>
                 <div className="card h-full">
                   <h3 className="font-display text-lg font-semibold">{item.title}</h3>
-                  <p className="mt-2 text-sm text-text-secondary">{item.description}</p>
+                  <p className="mt-2 text-sm text-text-secondary">{item.summary}</p>
                 </div>
               </Reveal>
             ))}

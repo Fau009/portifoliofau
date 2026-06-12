@@ -64,5 +64,56 @@ export interface ContactMessage {
 export interface TechItem {
   name: string;
   level: number; // 0-100
-  category: 'cx' | 'dev' | 'infra' | 'ai' | 'design';
+  category: string;
+}
+
+export interface TechCategory {
+  id: string;
+  label: string;
+}
+
+export interface TechnologiesContent {
+  categories: TechCategory[];
+  items: TechItem[];
+}
+
+export interface HeroCta {
+  text: string;
+  link: string;
+}
+
+export interface HeroContent {
+  eyebrow: string;
+  name: string;
+  taglinePrefix: string;
+  taglineLinkText: string;
+  taglineLinkUrl: string;
+  ctaPrimary: HeroCta;
+  ctaSecondary: HeroCta;
+}
+
+export interface SpecialtySubItem {
+  title: string;
+  topics: string[];
+}
+
+export interface SpecialtyItem {
+  id: string;
+  icon: string;
+  title: string;
+  highlight: boolean;
+  summary: string;
+  topics: string[];
+  subItems: SpecialtySubItem[];
+}
+
+export interface TimelineItem {
+  period: string;
+  title: string;
+  place: string;
+  description: string;
+}
+
+export interface AboutExtra {
+  timeline: TimelineItem[];
 }

@@ -9,6 +9,9 @@ import {
   Mail,
   LogOut,
   ExternalLink,
+  Layers,
+  Cpu,
+  BookOpen,
 } from 'lucide-react';
 import { useAuth } from '@/hooks/useAuth';
 
@@ -16,6 +19,9 @@ const NAV_ITEMS = [
   { to: '/fau-admin/dashboard', label: 'Dashboard', icon: LayoutDashboard },
   { to: '/fau-admin/projetos', label: 'Projetos', icon: FolderKanban },
   { to: '/fau-admin/conteudo', label: 'Conteúdo', icon: FileText },
+  { to: '/fau-admin/especialidades', label: 'Especialidades', icon: Layers },
+  { to: '/fau-admin/tecnologias', label: 'Tecnologias', icon: Cpu },
+  { to: '/fau-admin/sobre', label: 'Sobre', icon: BookOpen },
   { to: '/fau-admin/tema', label: 'Tema & Cores', icon: Palette },
   { to: '/fau-admin/paginas', label: 'Páginas', icon: Files },
   { to: '/fau-admin/imagens', label: 'Imagens', icon: ImageIcon },

@@ -1,22 +1,15 @@
 import { SEO } from '@/components/shared/SEO';
 import { Reveal } from '@/components/shared/Reveal';
-import { mockTechnologies } from '@/lib/mockData';
-
-const CATEGORY_LABELS: Record<string, string> = {
-  cx: 'Customer Experience',
-  dev: 'Desenvolvimento',
-  infra: 'Infraestrutura & Deploy',
-  ai: 'Inteligência Artificial',
-  design: 'Design',
-};
-
-const CATEGORY_ORDER = ['cx', 'ai', 'dev', 'infra', 'design'];
+import { useSiteContent } from '@/hooks/siteConfigContext';
 
 export default function Technologies() {
-  const grouped = CATEGORY_ORDER.map((cat) => ({
-    category: cat,
-    items: mockTechnologies.filter((t) => t.category === cat),
-  })).filter((g) => g.items.length > 0);
+  const { technologies } = useSiteContent();
+  const grouped = technologies.categories
+    .map((cat) => ({
+      category: cat,
+      items: technologies.items.filter((t) => t.category === cat.id),
+    }))
+    .filter((g) => g.items.length > 0);
 
   return (
     <>
@@ -37,9 +30,9 @@ export default function Technologies() {
       <section className="bg-surface py-16">
         <div className="container-section space-y-12">
           {grouped.map((group, gi) => (
-            <Reveal key={group.category} delay={gi * 0.05}>
+            <Reveal key={group.category.id} delay={gi * 0.05}>
               <h2 className="font-display text-xl font-bold text-navy-deep">
-                {CATEGORY_LABELS[group.category]}
+                {group.category.label}
               </h2>
               <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
                 {group.items.map((tech) => (

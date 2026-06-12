@@ -1,88 +1,13 @@
 import { useState } from 'react';
-import { Headset, Brain, Code2, ClipboardList, Star } from 'lucide-react';
 import { SEO } from '@/components/shared/SEO';
 import { Reveal } from '@/components/shared/Reveal';
-
-interface Specialty {
-  id: string;
-  icon: typeof Headset;
-  title: string;
-  highlight?: boolean;
-  topics: string[];
-  subItems?: { title: string; topics: string[] }[];
-}
-
-const SPECIALTIES: Specialty[] = [
-  {
-    id: 'cx',
-    icon: Headset,
-    title: 'Customer Experience (CX)',
-    topics: [
-      'Estruturação de operações',
-      'Fluxos omnichannel',
-      'SLA e gestão de qualidade',
-      'Jornadas do cliente',
-      'KPIs e métricas operacionais',
-    ],
-  },
-  {
-    id: 'zendesk',
-    icon: Star,
-    title: 'Zendesk Specialist',
-    highlight: true,
-    topics: [],
-    subItems: [
-      { title: 'Support', topics: ['Triggers e automações', 'Campos customizados', 'SLAs', 'Macros', 'Views', 'Gestão de tickets'] },
-      { title: 'Guide', topics: ['Help Center', 'Base de conhecimento', 'Autoatendimento'] },
-      { title: 'Explore', topics: ['Dashboards', 'Relatórios gerenciais', 'Métricas operacionais'] },
-      { title: 'Messaging', topics: ['Canais digitais', 'Web Widget', 'Identificação de usuários'] },
-      { title: 'AI Agents', topics: ['Intent recognition', 'Fluxos inteligentes', 'Metadata', 'Treinamento de IA'] },
-    ],
-  },
-  {
-    id: 'ia',
-    icon: Brain,
-    title: 'Inteligência Artificial',
-    topics: [
-      'Chatbots e agentes autônomos',
-      'OpenAI / GPT',
-      'Claude / Anthropic',
-      'Prompt engineering',
-      'Bases de conhecimento',
-    ],
-  },
-  {
-    id: 'dev',
-    icon: Code2,
-    title: 'Desenvolvimento & Integrações',
-    topics: [
-      'APIs REST',
-      'Webhooks',
-      'Firebase / Firestore',
-      'Supabase',
-      'React / TypeScript',
-      'Integrações entre plataformas (Zendesk, IA, sistemas corporativos)',
-    ],
-  },
-  {
-    id: 'gestao',
-    icon: ClipboardList,
-    title: 'Gestão de Projetos',
-    topics: [
-      'Levantamento de requisitos',
-      'Desenho de solução',
-      'Configuração',
-      'Testes',
-      'Treinamento',
-      'Pós-implantação e go-live',
-    ],
-  },
-];
+import { useSiteContent } from '@/hooks/siteConfigContext';
+import { renderIcon } from '@/lib/iconMap';
 
 export default function Specialties() {
-  const [active, setActive] = useState(SPECIALTIES[1].id);
-  const current = SPECIALTIES.find((s) => s.id === active) ?? SPECIALTIES[0];
-  const Icon = current.icon;
+  const { specialties } = useSiteContent();
+  const [active, setActive] = useState(specialties[1]?.id ?? specialties[0]?.id);
+  const current = specialties.find((s) => s.id === active) ?? specialties[0];
 
   return (
     <>
@@ -105,7 +30,7 @@ export default function Specialties() {
           {/* Tabs */}
           <Reveal>
             <div className="flex flex-wrap gap-3">
-              {SPECIALTIES.map((s) => (
+              {specialties.map((s) => (
                 <button
                   key={s.id}
                   type="button"
@@ -116,7 +41,7 @@ export default function Specialties() {
                       : 'border-text-secondary/20 text-text-secondary hover:border-gold/60 hover:text-text-primary'
                   } ${s.highlight ? 'ring-1 ring-gold/30' : ''}`}
                 >
-                  <s.icon size={16} />
+                  {renderIcon(s.icon, { size: 16 })}
                   {s.title}
                 </button>
               ))}
@@ -127,11 +52,11 @@ export default function Specialties() {
           <Reveal key={current.id} delay={0.05}>
             <div className="card mt-8">
               <div className="flex items-center gap-3">
-                <Icon className="text-gold" size={28} />
+                {renderIcon(current.icon, { className: 'text-gold', size: 28 })}
                 <h2 className="font-display text-2xl font-bold">{current.title}</h2>
               </div>
 
-              {current.subItems ? (
+              {current.subItems.length > 0 ? (
                 <div className="mt-6 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
                   {current.subItems.map((sub) => (
                     <div key={sub.title} className="rounded-md border border-gold/20 bg-gold/5 p-4">

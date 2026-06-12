@@ -3,39 +3,6 @@ import { SEO } from '@/components/shared/SEO';
 import { Reveal } from '@/components/shared/Reveal';
 import { useSiteContent } from '@/hooks/siteConfigContext';
 
-const TIMELINE = [
-  {
-    period: '2013 — 2014',
-    title: 'Faturamento',
-    place: 'Correios',
-    description: 'Registro e organização de documentos enviados por parceiros comerciais, garantindo a integridade dos dados.',
-  },
-  {
-    period: '2015 — 2017',
-    title: 'Analista Customer Service',
-    place: 'BCR.CX',
-    description: 'Atendimento multicanal (telefone, e-mail, chat e redes sociais), vendas no e-commerce e gestão de reclamações no Reclame Aqui.',
-  },
-  {
-    period: '2017',
-    title: 'Back Office',
-    place: 'BCR.CX',
-    description: 'Atendimento a clientes VIP, relação com transportadoras e fornecedores, gestão de documentação e resolução de problemas operacionais.',
-  },
-  {
-    period: '2017',
-    title: 'Supervisor de Operações',
-    place: 'BCR.CX',
-    description: 'Gestão e desenvolvimento de equipe, criação de treinamentos, melhoria de processos e definição de métricas de desempenho.',
-  },
-  {
-    period: '2018 — Atualidade',
-    title: 'Digital Head Solutions Consultant',
-    place: 'BCR.CX',
-    description: 'Liderança da equipe responsável pela implementação e suporte de plataformas de atendimento para clientes de grande porte como Adobe, Lacoste, Bauducco, Pandora e Natura.',
-  },
-];
-
 const CERTIFICATIONS = [
   { title: 'AI Agents | Advanced', date: 'out/2025' },
   { title: 'Zendesk AI Agent (Ultimate) Technical Expert', date: 'ago/2024' },
@@ -77,7 +44,7 @@ const PERSONAL_TOPICS = [
 ];
 
 export default function About() {
-  const { content } = useSiteContent();
+  const { content, aboutExtra } = useSiteContent();
 
   return (
     <>
@@ -138,7 +105,7 @@ export default function About() {
           </Reveal>
 
           <div className="mt-12 space-y-6 border-l border-text-secondary/15 pl-6">
-            {TIMELINE.map((item, i) => (
+            {aboutExtra.timeline.map((item, i) => (
               <Reveal key={`${item.title}-${item.period}`} delay={i * 0.06}>
                 <div className="relative">
                   <span className="absolute -left-[31px] top-1.5 flex size-4 items-center justify-center rounded-full bg-gold">
