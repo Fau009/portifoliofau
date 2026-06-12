@@ -144,6 +144,7 @@ export const mockTechnologies: TechItem[] = [
   { name: 'OpenAI', level: 85, category: 'ai' },
   { name: 'Claude / Anthropic', level: 85, category: 'ai' },
   { name: 'Ultimate.ai', level: 90, category: 'ai' },
+  { name: 'Automações (Make, Zapier, n8n)', level: 85, category: 'ai' },
   { name: 'Python', level: 65, category: 'dev' },
   { name: 'APIs REST', level: 85, category: 'dev' },
   { name: 'GitHub', level: 85, category: 'dev' },

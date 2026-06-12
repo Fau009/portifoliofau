@@ -16,7 +16,7 @@ export const defaultContent = {
   hero_subtitle:
     'Consultor de tecnologia especializado em Customer Experience, Zendesk e Inteligência Artificial — fundador da Full Solutions, com múltiplas frentes de atuação em consultoria e produtos digitais.',
   about_professional:
-    'Fabio é consultor de tecnologia especializado em Customer Experience, Zendesk, Inteligência Artificial e Transformação Digital. Fundador da Full Solutions, atua há mais de uma década na área de consultoria da BCR.CX, onde detém todas as certificações Zendesk disponíveis (Admin Expert, implementação, pré-vendas e vendas). Lidera o Squad de Sustentação e Manutenção, gerencia um grande portfólio de contratos e recentemente assumiu responsabilidade expandida cobrindo qualidade e treinamento para toda a área de consultoria.',
+    'Fabio começou a carreira em 2013 nos Correios e migrou para o atendimento ao cliente em 2015. Ao longo de quase 11 anos na BCR.CX, evoluiu de Analista de Customer Service para Back Office, depois Supervisor de Operações e hoje atua como Digital Head Solutions Consultant, liderando a equipe responsável pela implementação e suporte de plataformas de atendimento para clientes de grande porte como Adobe, Lacoste, Bauducco, Pandora e Natura. É especialista Zendesk com certificações em toda a suíte — Support, Guide, Talk, Messaging, Sell, Implementation e AI Agents —, atua também com Inteligência Artificial e automações (Make, Zapier, n8n), e é fundador da Full Solutions.',
   about_personal:
     'Quando não está estruturando operações de CX, Fabio gosta de mergulhar no universo geek (animes, séries, mangás e games), acompanhar esportes, e passar tempo com a família e a igreja.',
 };

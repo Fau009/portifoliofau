@@ -14,7 +14,7 @@ export function RotatingTitle() {
   }, []);
 
   return (
-    <span className="relative inline-flex h-[1.2em] min-w-[280px] items-center overflow-hidden align-bottom md:min-w-[360px]">
+    <span className="relative inline-flex h-[1.2em] min-w-[300px] items-center overflow-hidden align-bottom sm:min-w-[340px] md:min-w-[420px]">
       <AnimatePresence mode="wait">
         <motion.span
           key={TITLES[index]}
@@ -22,7 +22,7 @@ export function RotatingTitle() {
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: -20 }}
           transition={{ duration: 0.4, ease: 'easeOut' }}
-          className="absolute inset-0 flex items-center text-gold"
+          className="absolute inset-0 flex items-center whitespace-nowrap text-gold"
         >
           {TITLES[index]}
         </motion.span>
